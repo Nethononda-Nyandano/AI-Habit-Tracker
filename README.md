@@ -1,6 +1,5 @@
 # AI-Habit Tracker
 
-![Banner](./assets/banner.png)
 
 **AI-Habit Tracker** is a modern habit tracking system powered by **AI**, designed to help users track their habits, receive personalized suggestions, and gain insights into their mood and productivity.  
 
@@ -120,3 +119,65 @@ Follow these steps to install and run the project locally:
 ```bash
 git clone https://github.com/yourusername/AI-Habit-Tracker.git
 cd AI-Habit-Tracker
+
+2. Move the project to your server
+
+Place the project folder in your local server directory:
+
+xampp/htdocs/
+
+
+or your live server folder.
+
+3. Import the database
+
+Open phpMyAdmin
+
+Create a new database, e.g., ai_habit_tracker
+
+Import the SQL file: schema.sql
+
+4. Configure environment variables
+
+Create a .env file in the project root:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=ai_habit_tracker
+OPENAI_API_KEY=your_openai_api_key
+
+5. Start the server
+
+Start Apache and MySQL in XAMPP (or your server)
+
+Open your browser and visit:
+
+http://localhost/AI-Habit-Tracker/
+
+6. Optional steps
+
+Ensure .env is included in .gitignore to prevent pushing secrets
+
+Replace your_openai_api_key with your actual OpenAI API key
+
+## Author
+
+**Nethononda Nyandano**  
+Full-Stack Developer  
+
+- **GitHub:** [https://github.com/Nethononda-Nyandano](https://github.com/Nethononda-Nyandano)  
+- **Email:** nyandanonethononda8@gmail.com 
+- **Location:** South Africa
+- **Portfolio:**  
+
+### About Me
+I am a passionate developer focused on building practical solutions for real-world problems.  
+This project, **AI-Habit Tracker**, was created to help users improve habits, track moods, and interact with AI for self-growth.  
+
+I enjoy:
+- Building full-stack applications with PHP, JS, and Tailwind
+- Integrating AI services like OpenAI
+- Creating user-friendly dashboards and analytics
+- Helping small businesses and individuals grow with technology
+
