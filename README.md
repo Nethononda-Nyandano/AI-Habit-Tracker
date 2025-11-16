@@ -100,7 +100,7 @@ This project is designed for individuals who want a smart, interactive way to im
 
 | AI Chat | Diary Entry | Diary Calendar |
 |---------|------------|----------------|
-| ![ai-chat](./assets/screenshots/ai.png) | ![diary-entry](./assets/screenshots/diary-entry.png) | ![diary-calendar](./assets/screenshots/diary-calendar.png) |
+| ![ai-chat](./assets/screenshots/AI.png) | ![diary-entry](./assets/screenshots/diary-entry.png) | ![diary-calendar](./assets/screenshots/calendar.png) |
 
 ---
 
