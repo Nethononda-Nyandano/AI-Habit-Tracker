@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live GPS Voice Navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body { height: 100%; margin: 0; padding: 0; font-family: Arial; }
+  #map { height: 70%; width: 100%; }
+  #sidebar {
+    height: 30%; overflow-y:auto;
+    padding: 10px; background: #f9f9f9;
+  }
+  .step { padding: 5px; border-bottom: 1px solid #ccc; }
+  .step:hover { background: #e6f0ff; }
+  #search-box {
+    width: 100%; padding: 6px; margin-bottom: 8px;
+    border: 1px solid #ccc; border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div id="sidebar">
+  <input id="search-box" type="text" placeholder="Enter destination..." />
+  <h3>Navigation Steps</h3>
+  <div id="steps"></div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpUJyDWWfdNt4oFWzl-4zWmbuavRVPlJA&libraries=places"></script>
+
+<script>
+let map, directionsService, directionsRenderer;
+let currentMarker;
+let selectedDestination;
+let steps = [];
+let currentStepIndex = 0;
+
+// Initialize Map
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: { lat: 0, lng: 0 }
+  });
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer({ map: map, suppressMarkers: true });
+
+  // Watch user's position continuously
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(position => {
+      const loc = { lat: position.coords.latitude, lng: position.coords.longitude };
+      map.setCenter(loc);
+      if (currentMarker) currentMarker.setPosition(loc);
+      else currentMarker = new google.maps.Marker({ position: loc, map, title: "You are here", icon: { url: "https://cdn-icons-png.flaticon.com/512/684/684908.png", scaledSize: new google.maps.Size(35,35) } });
+      updateNavigation(loc);
+    }, () => alert("Unable to access location"), { enableHighAccuracy: true, maximumAge: 0 });
+  } else alert("Geolocation not supported");
+
+  // Search box autocomplete
+  const input = document.getElementById("search-box");
+  const autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo("bounds", map);
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (!place.geometry) return alert("Place not found!");
+    selectedDestination = place.geometry.location;
+    map.panTo(selectedDestination);
+    map.setZoom(14);
+    if (currentMarker) calculateRoute(currentMarker.getPosition(), selectedDestination);
+  });
+}
+
+// Calculate route
+function calculateRoute(origin, destination) {
+  directionsService.route({
+    origin,
+    destination,
+    travelMode: 'DRIVING',
+    provideRouteAlternatives: false
+  }, (result, status) => {
+    if (status === 'OK') {
+      directionsRenderer.setDirections(result);
+      steps = result.routes[0].legs[0].steps;
+      currentStepIndex = 0;
+      displaySteps(steps);
+    } else alert("Directions failed: " + status);
+  });
+}
+
+// Display steps in sidebar
+function displaySteps(steps) {
+  const stepsDiv = document.getElementById("steps");
+  stepsDiv.innerHTML = "";
+  steps.forEach((step, i) => {
+    const div = document.createElement("div");
+    div.className = "step";
+    div.innerHTML = `${i + 1}. ${step.instructions}`;
+    div.addEventListener("click", () => map.panTo(step.end_location));
+    stepsDiv.appendChild(div);
+  });
+}
+
+// Update navigation as user moves
+function updateNavigation(currentPos) {
+  if (!steps.length || currentStepIndex >= steps.length) return;
+  const step = steps[currentStepIndex];
+  const distanceToStep = google.maps.geometry.spherical.computeDistanceBetween(currentPos, step.end_location);
+
+  // Move to next step when within 15 meters
+  if (distanceToStep < 15) {
+    speak(step.instructions);
+    currentStepIndex++;
+  }
+}
+
+// Voice guidance
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    const utter = new SpeechSynthesisUtterance(text.replace(/<[^>]*>/g, ''));
+    utter.rate = 1;
+    window.speechSynthesis.speak(utter);
+  }
+}
+
+window.onload = initMap;
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places,geometry"></script>
+</body>
+</html>
