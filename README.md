@@ -119,13 +119,14 @@ Follow these steps to install and run the project locally:
 ```bash
 git clone https://github.com/yourusername/AI-Habit-Tracker.git
 cd AI-Habit-Tracker
+```
 
 ### 2. Move the project to your server
 
 -Place the project folder in your local server directory:
-
--xampp/htdocs/
-
+```bash
+xampp/htdocs/
+```
 
 -or your live server folder.
 
@@ -140,20 +141,21 @@ cd AI-Habit-Tracker
 ### 4. Configure environment variables
 
 ##Create a .env file in the project root:
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=
-DB_NAME=ai_habit_tracker
-OPENAI_API_KEY=your_openai_api_key
-
+```bash
+-DB_HOST=localhost
+-DB_USER=root
+-DB_PASS=
+-DB_NAME=ai_habit_tracker
+-OPENAI_API_KEY=your_openai_api_key
+```
 ### 5. Start the server
 
 -Start Apache and MySQL in XAMPP (or your server)
 
 -Open your browser and visit:
-
+```bash
 -http://localhost/AI-Habit-Tracker/
+```
 
 ###6. Optional steps
 
