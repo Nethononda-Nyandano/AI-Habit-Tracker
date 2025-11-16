@@ -140,7 +140,7 @@ xampp/htdocs/
 
 ### 4. Configure environment variables
 
-##Create a .env file in the project root:
+## Create a .env file in the project root:
 ```bash
 -DB_HOST=localhost
 -DB_USER=root
@@ -157,7 +157,7 @@ xampp/htdocs/
 -http://localhost/AI-Habit-Tracker/
 ```
 
-###6. Optional steps
+### 6. Optional steps
 
 -Ensure .env is included in .gitignore to prevent pushing secrets
 
