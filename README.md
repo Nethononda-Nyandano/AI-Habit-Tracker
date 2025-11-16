@@ -120,26 +120,26 @@ Follow these steps to install and run the project locally:
 git clone https://github.com/yourusername/AI-Habit-Tracker.git
 cd AI-Habit-Tracker
 
-2. Move the project to your server
+### 2. Move the project to your server
 
-Place the project folder in your local server directory:
+-Place the project folder in your local server directory:
 
-xampp/htdocs/
+-xampp/htdocs/
 
 
-or your live server folder.
+-or your live server folder.
 
-3. Import the database
+### 3. Import the database
 
-Open phpMyAdmin
+-Open phpMyAdmin
 
-Create a new database, e.g., ai_habit_tracker
+-Create a new database, e.g., ai_habit_tracker
 
-Import the SQL file: schema.sql
+-Import the SQL file: schema.sql
 
-4. Configure environment variables
+### 4. Configure environment variables
 
-Create a .env file in the project root:
+##Create a .env file in the project root:
 
 DB_HOST=localhost
 DB_USER=root
@@ -147,19 +147,19 @@ DB_PASS=
 DB_NAME=ai_habit_tracker
 OPENAI_API_KEY=your_openai_api_key
 
-5. Start the server
+### 5. Start the server
 
-Start Apache and MySQL in XAMPP (or your server)
+-Start Apache and MySQL in XAMPP (or your server)
 
-Open your browser and visit:
+-Open your browser and visit:
 
-http://localhost/AI-Habit-Tracker/
+-http://localhost/AI-Habit-Tracker/
 
-6. Optional steps
+###6. Optional steps
 
-Ensure .env is included in .gitignore to prevent pushing secrets
+-Ensure .env is included in .gitignore to prevent pushing secrets
 
-Replace your_openai_api_key with your actual OpenAI API key
+-Replace your_openai_api_key with your actual OpenAI API key
 
 ## Author
 
@@ -175,7 +175,7 @@ Full-Stack Developer
 I am a passionate developer focused on building practical solutions for real-world problems.  
 This project, **AI-Habit Tracker**, was created to help users improve habits, track moods, and interact with AI for self-growth.  
 
-I enjoy:
+###I enjoy:
 - Building full-stack applications with PHP, JS, and Tailwind
 - Integrating AI services like OpenAI
 - Creating user-friendly dashboards and analytics
