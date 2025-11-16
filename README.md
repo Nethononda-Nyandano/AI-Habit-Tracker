@@ -88,19 +88,19 @@ This project is designed for individuals who want a smart, interactive way to im
 
 ## Screenshots
 
-*(Replace placeholders with your actual screenshots in `/screenshots` folder)*
+
 
 | Login | Dashboard |
 |-------|-----------|
-| ![login](./assets/screenshots/login.png) | ![dashboard](./assets//screenshots/dashboard.png) |
+| ![login](./assets/screenshots/landing.png) | ![dashboard](./assets//screenshots/dashboard.png) |
 
 | Habits | Edit Habit | View Habit |
 |--------|------------|------------|
-| ![habits](./screenshots/habits.png) | ![edit-habit](./assets//screenshots/edit-habit.png) | ![view-habit](./screenshots/view-habit.png) |
+| ![habits](./assets/screenshots/habits.png) | ![edit-habit](./assets/screenshots/edit-habit.png) | ![view-habit](./assets/screenshots/view-habit.png) |
 
 | AI Chat | Diary Entry | Diary Calendar |
 |---------|------------|----------------|
-| ![ai-chat](./screenshots/ai-chat.png) | ![diary-entry](./screenshots/diary-entry.png) | ![diary-calendar](./screenshots/diary-calendar.png) |
+| ![ai-chat](./assets/screenshots/ai.png) | ![diary-entry](./assets/screenshots/diary-entry.png) | ![diary-calendar](./assets/screenshots/diary-calendar.png) |
 
 ---
 
