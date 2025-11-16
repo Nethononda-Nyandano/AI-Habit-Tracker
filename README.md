@@ -159,9 +159,9 @@ xampp/htdocs/
 
 ### 6. Optional steps
 
--Ensure .env is included in .gitignore to prevent pushing secrets
+Ensure .env is included in .gitignore to prevent pushing secrets
 
--Replace your_openai_api_key with your actual OpenAI API key
+Replace your_openai_api_key with your actual OpenAI API key
 
 ## Author
 
@@ -177,7 +177,7 @@ Full-Stack Developer
 I am a passionate developer focused on building practical solutions for real-world problems.  
 This project, **AI-Habit Tracker**, was created to help users improve habits, track moods, and interact with AI for self-growth.  
 
-###I enjoy:
+### I enjoy:
 - Building full-stack applications with PHP, JS, and Tailwind
 - Integrating AI services like OpenAI
 - Creating user-friendly dashboards and analytics
